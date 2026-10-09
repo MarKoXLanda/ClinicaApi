@@ -1,4 +1,6 @@
-﻿namespace ClinicaApi.Models
+﻿using System.Text.Json.Serialization;
+
+namespace ClinicaApi.Models
 {
     public class InsumoMedico
     {
@@ -8,6 +10,7 @@
         public int StockGlobal { get; set; }
         public decimal PrecioUnitario { get; set; }
 
+        [JsonIgnore]
         public ICollection<TransaccionInventario> Transacciones { get; set; } = new List<TransaccionInventario>();
     }
 }

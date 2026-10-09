@@ -15,6 +15,8 @@ namespace ClinicaApi.Data
         {
             base.OnModelCreating(modelBuilder);
 
+            modelBuilder.HasDefaultSchema("Marco");
+
             // Regla para Db2: Configuración de precisión para el dinero
             modelBuilder.Entity<InsumoMedico>()
                 .Property(i => i.PrecioUnitario)

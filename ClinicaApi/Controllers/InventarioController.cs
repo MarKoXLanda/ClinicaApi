@@ -66,6 +66,26 @@ namespace ClinicaApi.Controllers
                 return StatusCode(500, new { mensaje = "Error interno procesando la transacción.", detalle = ex.Message });
             }
         }
+
+        // POST: api/inventario/crear-centro
+        [HttpPost("crear-centro")]
+        public async Task<IActionResult> CrearCentro([FromBody] CentroCosto centro)
+        {
+            _context.CentrosCosto.Add(centro);
+            await _context.SaveChangesAsync();
+            return Ok(centro);
+        }
+
+        // POST: api/inventario/crear-insumo
+        [HttpPost("crear-insumo")]
+        public async Task<IActionResult> CrearInsumo([FromBody] InsumoMedico insumo)
+        {
+            _context.Insumos.Add(insumo);
+            await _context.SaveChangesAsync();
+            return Ok(insumo);
+        }
+
+
     }
 
     // Objeto que recibe los datos desde la interfaz web/escritorio
